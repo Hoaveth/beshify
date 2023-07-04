@@ -1,6 +1,6 @@
 import { Card, CardBody, CardHeader, Flex, Text } from "@chakra-ui/react";
 import React from "react";
-import { BsClipboard } from "react-icons/bs";
+import { RxCopy } from "react-icons/rx";
 
 const CardComponent = ({ text, generateText, copyText }) => {
   return (
@@ -8,7 +8,7 @@ const CardComponent = ({ text, generateText, copyText }) => {
       <CardHeader bg="#4A5568" color={"white"}>
         <Flex height={2} alignItems={"center"} justifyContent={"space-between"}>
           <Text fontSize={"sm"}>Generated Text</Text>
-          <BsClipboard onClick={() => copyText()} className="icon" />
+          <RxCopy onClick={() => copyText()} className="icon" />
         </Flex>
       </CardHeader>
       <CardBody maxW={{ base: "340px", md: "450px", lg: "600px" }}>
