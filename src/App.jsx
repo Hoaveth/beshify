@@ -51,7 +51,7 @@ function App() {
             fontSize={{ base: "4xl", md: "4xl", lg: "6xl" }}
             fontFamily={"Shrikhand, cursive"}
           >
-            🤸 Beshify🤸
+            🤸 Beshify 🤸
           </Text>
           <Stack>
             <HStack>
