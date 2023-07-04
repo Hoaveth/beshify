@@ -14,28 +14,36 @@ function App() {
     return text.replace(/ /g, "🤸");
   };
 
+  const copyTextUsingTextArea = (text) => {
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textarea);
+  };
+
   const copyText = () => {
-    // Copy the text inside the text field
-    navigator.clipboard.write([
-      new ClipboardItem({ "text/plain": new Blob([text]) }),
-    ]);
+    try {
+      const blobText = new Blob([text], { type: "text/plain" });
+      const data = [
+        new ClipboardItem({
+          ["text/plain"]: blobText,
+        }),
+      ];
 
-    const blobText = new Blob([text], { type: "text/plain" });
-    const data = [
-      new ClipboardItem({
-        ["text/plain"]: blobText,
-      }),
-    ];
+      navigator.clipboard.write(data);
 
-    navigator.clipboard.write(data);
-
-    toast({
-      title: "🤸 Beshify 🤸",
-      description: "Text Copied Successfully.",
-      status: "success",
-      duration: 3000,
-      isClosable: false,
-    });
+      toast({
+        title: "🤸 Beshify 🤸",
+        description: "Text Copied Successfully.",
+        status: "success",
+        duration: 3000,
+        isClosable: false,
+      });
+    } catch (e) {
+      copyTextUsingTextArea(text);
+    }
   };
 
   return (
