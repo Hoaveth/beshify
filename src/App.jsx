@@ -10,8 +10,11 @@ function App() {
   const toast = useToast();
 
   const generateText = () => {
-    setText(text.replace(/ /g, "🤸"));
-    return text.replace(/ /g, "🤸");
+    const replacedValue = text.replace(/\s+/g, " ");
+    const newValue = replacedValue.replace(/\s/g, "🤸");
+
+    setText(newValue);
+    return newValue;
   };
 
   const copyTextUsingTextArea = (text) => {
