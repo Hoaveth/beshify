@@ -1,8 +1,8 @@
 import { useState } from "react";
-import "./App.css";
 import ColorModeComponent from "./components/ColorModeComponent";
 import { Flex, HStack, Input, Stack, Text, useToast } from "@chakra-ui/react";
 import CardComponent from "./components/CardComponent";
+import "./App.css";
 
 function App() {
   const [text, setText] = useState("");
