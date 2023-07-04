@@ -24,26 +24,14 @@ function App() {
   };
 
   const copyText = () => {
-    try {
-      const blobText = new Blob([text], { type: "text/plain" });
-      const data = [
-        new ClipboardItem({
-          ["text/plain"]: blobText,
-        }),
-      ];
-
-      navigator.clipboard.write(data);
-
-      toast({
-        title: "🤸 Beshify 🤸",
-        description: "Text Copied Successfully.",
-        status: "success",
-        duration: 3000,
-        isClosable: false,
-      });
-    } catch (e) {
-      copyTextUsingTextArea(text);
-    }
+    copyTextUsingTextArea(text);
+    toast({
+      title: "🤸 Beshify 🤸",
+      description: "Text Copied Successfully.",
+      status: "success",
+      duration: 3000,
+      isClosable: false,
+    });
   };
 
   return (
