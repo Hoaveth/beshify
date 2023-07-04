@@ -10,11 +10,16 @@ function App() {
   const toast = useToast();
 
   const generateText = () => {
-    const replacedValue = text.replace(/\s+/g, " ");
-    const newValue = replacedValue.replace(/\s/g, "🤸");
+    const trimmedText = text.trim();
 
-    setText(newValue);
-    return newValue;
+    if (trimmedText.length > 0) {
+      const replacedValue = trimmedText.replace(/\s+/g, " ");
+      const newValue = replacedValue.replace(/\s/g, "🤸");
+      setText(newValue);
+      return newValue;
+    } else {
+      setText(trimmedText);
+    }
   };
 
   const copyTextUsingTextArea = (text) => {
